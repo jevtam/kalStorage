@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Travel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">To the contents</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="index.html" aria-label="Travel - to the main page">
+        <span class="logo__mark">✈︎</span><span class="logo__text">Talking <strong>Travel</strong></span>
+      </a>
+
+      <nav class="nav" aria-label="Main menu">
+        <ul class="nav__list">
+          <li class="nav__item"><a class="nav__link nav__link--active" aria-current="page" href="index.html">Home</a></li>
+          <li class="nav__item"><a class="nav__link" href="#stories">Story</a></li>
+          <li class="nav__item"><a class="nav__link" href="#gallery">Gallery</a></li>
+          <li class="nav__item"><a class="nav__link" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!--hero-->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <p class="eyebrow">Letʼs talk about</p>
+          <h1 id="hero-title" class="hero__title">your next trip!</h1>
+          <p class="hero__lead">
+            Share your favorite destination, and we will add it to our next blog post.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#form">Share your story</a>
+            <a class="btn btn--ghost" href="blog.html">Watch highlights</a>
+          </div>
+        </div>
+        <figure class="hero__media">
+          <img src="https://picsum.photos/960/640?random=1"/>
+        </figure>
+      </div>
+    </section>
+
+    <!--featured article-->
+    <section class="section" aria-labelledby="feat-title">
+      <div class="container">
+        <div class="feature">
+          <figure class="feature__media">
+            <img src="https://picsum.photos/600/400?random=2"/>
+          </figure>
+          <div class="feature__content">
+            <p class="eyebrow">Featured destination</p>
+            <h2 id="feat-title" class="section__title">Our Swiss adventure blog</h2>
+            <p>Want to see what Switzerland looks like in winter? Go to the article with the best photos and itineraries.</p>
+            <p><a class="link" href="blog.html">Watch now →</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--discover cards-->
+    <section class="section" aria-labelledby="discover-title" id="gallery">
+      <div class="container">
+        <p class="eyebrow">Join our adventures</p>
+        <h2 id="discover-title" class="section__title">Discover the world with us</h2>
+
+        <ul class="card-grid" role="list">
+          <li class="card">
+            <a class="card__link" href="blog.html">
+              <img class="card__img" src="https://picsum.photos/480/360?random=3"/>
+              <div class="card__body">
+                <h3 class="card__title">Iceland</h3>
+                <p class="card__meta">Discover</p>
+              </div>
+            </a>
+          </li>
+          <li class="card">
+            <a class="card__link" href="blog.html">
+              <img class="card__img" src="https://picsum.photos/480/360?random=4"/>
+              <div class="card__body">
+                <h3 class="card__title">Italy</h3>
+                <p class="card__meta">Discover</p>
+              </div>
+            </a>
+          </li>
+          <li class="card">
+            <a class="card__link" href="blog.html">
+              <img class="card__img" src="https://picsum.photos/480/360?random=5"/>
+              <div class="card__body">
+                <h3 class="card__title">Dubai</h3>
+                <p class="card__meta">Discover</p>
+              </div>
+            </a>
+          </li>
+          <li class="card">
+            <a class="card__link" href="blog.html">
+              <img class="card__img" src="https://picsum.photos/480/360?random=6"/>
+              <div class="card__body">
+                <h3 class="card__title">Patagonia</h3>
+                <p class="card__meta">Discover</p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!--form-->
+    <section class="section section--muted" aria-labelledby="form-title" id="form">
+      <div class="container">
+        <p class="eyebrow">Letʼs build a community</p>
+        <h2 id="form-title" class="section__title">Join our next destination</h2>
+
+        <form class="form" aria-describedby="form-help">
+          <p id="form-help" class="form__hint">
+            Suggest a new direction - the best ideas will be featured on our blog.
+          </p>
+
+          <div class="form__grid">
+            <label class="field">
+              <span class="field__label">Destination name</span>
+              <input class="field__input" type="text" name="destination" placeholder="Zermatt" />
+            </label>
+
+            <label class="field">
+              <span class="field__label">Country</span>
+              <input class="field__input" type="text" name="country" placeholder="Switzerland" />
+            </label>
+
+            <label class="field">
+              <span class="field__label">Your name</span>
+              <input class="field__input" type="text" name="name" placeholder="Rip Van Winkle" />
+            </label>
+
+            <label class="field">
+              <span class="field__label">Shooting category</span>
+              <select class="field__input" name="category">
+                <option>Landscape</option>
+                <option>City</option>
+                <option>Wildlife</option>
+              </select>
+            </label>
+
+            <label class="field field--wide">
+              <span class="field__label">What to focus on?</span>
+              <textarea class="field__input" rows="3" placeholder="Warm sunrises, cable cars, panoramic views of the Matterhorn"></textarea>
+            </label>
+          </div>
+
+          <button class="btn btn--primary" type="button">Submit</button>
+        </form>
+      </div>
+    </section>
+
+    <!--recent posts-->
+    <section class="section" aria-labelledby="recent-title" id="stories">
+      <div class="container">
+        <p class="eyebrow">Catch up to our posts</p>
+        <h2 id="recent-title" class="section__title">Recent story entries</h2>
+
+        <div class="list">
+          <article class="list-item">
+            <img class="list-item__img" src="https://picsum.photos/160/120?random=7"/>
+            <div class="list-item__body">
+              <h3 class="list-item__title"><a href="blog.html">Zermatt, Switzerland</a></h3>
+              <p class="list-item__text">The beauty of the Matterhorn. The best places to catch the sunrise.</p>
+            </div>
+          </article>
+
+          <article class="list-item">
+            <img class="list-item__img" src="https://picsum.photos/160/120?random=8"/>
+            <div class="list-item__body">
+              <h3 class="list-item__title"><a href="blog.html">Kyoto, Japan</a></h3>
+              <p class="list-item__text">Quiet alleys and temples. The best views in&nbsp;blue hour.</p>
+            </div>
+          </article>
+
+          <article class="list-item">
+            <img class="list-item__img" src="https://picsum.photos/160/120?random=9"/>
+            <div class="list-item__body">
+              <h3 class="list-item__title"><a href="blog.html">Lofoten Islands, Norway</a></h3>
+              <p class="list-item__text">Cold fjords and warm cottages - a 3 day itinerary.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="container site-footer__inner">
+      <p class="site-footer__copy">© 2025, Talking Travel.</p>
+      <ul class="site-footer__links" role="list">
+        <li><a class="link" href="index.html">Home</a></li>
+        <li><a class="link" href="blog.html">Blog</a></li>
+        <li><a class="link" href="#gallery">Gallery</a></li>
+        <li><a class="link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>
