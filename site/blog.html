@@ -1,28 +1,28 @@
 <!doctype html>
-<html lang="ru">
+<html>
 <head>
-  <meta charset="utf-8"/>
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Travel — Hello Switzerland!</title>
+  <title>Talking Travel - Hello Switzerland!</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles/main.css"/>
+  <link rel="stylesheet" href="styles/main.css" />
 </head>
 <body>
   <a class="skip-link" href="#main">To the contents</a>
 
   <header class="site-header">
-    <div class="container site-header_inner">
-      <a class="logo" href="index.html" aria-label="Travel — to the main page">
-        <span class="logo_text">Talking <strong>Travel</strong></span>
+    <div class="container site-header__inner">
+      <a class="logo" href="index.html" aria-label="Talking Travel - to the main page">
+        <span class="logo__mark">✈︎</span><span class="logo__text">Talking <strong>Travel</strong></span>
       </a>
 
-      <nav class="nav" aria-label="Main menu">
-        <ul class="nav_list">
-          <li class="nav_item"><a class="nav_link" href="index.html">Home</a></li>
-          <li class="nav_item"><a class="nav_link nav_link--active" aria-current="page" href="blog.html">Story</a></li>
-          <li class="nav_item"><a class="nav_link" href="index.html#gallery">Gallery</a></li>
-          <li class="nav_item"><a class="nav_link" href="index.html#contact">Contact</a></li>
+      <nav class="nav" aria-label="Главное меню">
+        <ul class="nav__list">
+          <li class="nav__item"><a class="nav__link" href="index.html">Home</a></li>
+          <li class="nav__item"><a class="nav__link nav__link--active" aria-current="page" href="blog.html">Blog</a></li>
+          <li class="nav__item"><a class="nav__link" href="index.html#gallery">Gallery</a></li>
+          <li class="nav__item"><a class="nav__link" href="index.html#contact">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -30,19 +30,19 @@
 
   <main id="main">
     <article class="article">
-      <header class="article_header">
+      <header class="article__header">
         <div class="container">
           <p class="eyebrow">Popular destinations</p>
-          <h1 class="article_title">Hello Switzerland!</h1>
-          <figure class="article_cover">
-            <img src="https://picsum.photos/1200/600?random=10"/>
+          <h1 class="article__title">Hello Switzerland!</h1>
+          <figure class="article__cover">
+            <img src="https://picsum.photos/1200/600?random=10" alt="Matterhorn - snowy peak in the clouds" />
             <figcaption class="visually-hidden">Zermatt, Matterhorn</figcaption>
           </figure>
-          <p class="article_meta">Author: <strong>Danii Stewart</strong> — photographer</p>
+          <p class="article__meta">Author: <strong>Danii Stewart</strong> - photographer</p>
         </div>
       </header>
 
-      <div class="container article_content">
+      <div class="container article__content">
         <section aria-labelledby="story-head">
           <h2 id="story-head">Our Swiss adventure story</h2>
           <p>
@@ -50,31 +50,31 @@
           </p>
         </section>
 
-        <section class="media-grid" aria-label="Галерея">
-          <img src="https://picsum.photos/400/480?random=11"/>
-          <img src="https://picsum.photos/400/240?random=12"/>
-          <img src="https://picsum.photos/400/240?random=13"/>
+        <section class="media-grid" aria-label="Gallery">
+          <img src="https://picsum.photos/400/480?random=11" alt="Pine forest and fog" />
+          <img src="https://picsum.photos/400/240?random=12" alt="Snowy peaks and lake" />
+          <img src="https://picsum.photos/400/240?random=13" alt="Sunny glade in the mountains" />
         </section>
 
         <blockquote class="quote">
-          <p class="quote_text">«One of the best hikes weʼve done so far…»</p>
-          <p class="quote_note">Swiss routes are not the highest in terms of elevation gain, but they are very picturesque and friendly..</p>
+          <p class="quote__text">«One of the best hikes weʼve done so far…»</p>
+          <p class="quote__note">Swiss routes are not the highest in terms of elevation gain, but they are very picturesque and friendly.</p>
         </blockquote>
 
         <section aria-labelledby="highlights-head">
           <h2 id="highlights-head">Highlights</h2>
           <div class="card-grid card-grid--three">
             <article class="card card--flat">
-              <img class="card_img" src="https://picsum.photos/480/320?random=14"/>
-              <div class="card_body"><h3 class="card_title">Alpine valleys</h3></div>
+              <img class="card__img" src="https://picsum.photos/480/320?random=14" alt="Valley and pastures" />
+              <div class="card__body"><h3 class="card__title">Alpine valleys</h3></div>
             </article>
             <article class="card card--flat">
-              <img class="card_img" src="https://picsum.photos/480/320?random=15"/>
-              <div class="card_body"><h3 class="card_title">Trains and viaducts</h3></div>
+              <img class="card__img" src="https://picsum.photos/480/320?random=15" alt="Viaduct and train" />
+              <div class="card__body"><h3 class="card__title">Trains and viaducts</h3></div>
             </article>
             <article class="card card--flat">
-              <img class="card_img" src="https://picsum.photos/480/320?random=16"/>
-              <div class="card_body"><h3 class="card_title">Cable cars</h3></div>
+              <img class="card__img" src="https://picsum.photos/480/320?random=16" alt="Cable car" />
+              <div class="card__body"><h3 class="card__title">Cable cars</h3></div>
             </article>
           </div>
         </section>
@@ -82,7 +82,7 @@
         <section aria-labelledby="note-head">
           <h2 id="note-head">Disclaimer</h2>
           <p class="note">
-            The pandemic has hit tourism in the region hard, but the industry is recovering. Plan your trips with local regulations in mind..
+            The pandemic has hit tourism in the region hard, but the industry is recovering. Plan your trips with local regulations in mind.
           </p>
         </section>
       </div>
@@ -91,31 +91,31 @@
     <section class="section section--muted" aria-labelledby="form2-title" id="form">
       <div class="container">
         <p class="eyebrow">Letʼs build a community</p>
-        <h2 id="form2-title" class="section_title">Join our next destination</h2>
+        <h2 id="form2-title" class="section__title">Join our next destination</h2>
 
         <form class="form" aria-describedby="form2-help">
-          <p id="form2-help" class="form_hint">Suggest a new direction — the best ideas will be featured on our blog.</p>
+          <p id="form2-help" class="form__hint">Suggest a new direction - the best ideas will be featured on our blog.</p>
 
-          <div class="form_grid">
+          <div class="form__grid">
             <label class="field">
-              <span class="field_label">Destination name</span>
-              <input class="field_input" type="text" placeholder="Zermatt"/>
+              <span class="field__label">Destination name</span>
+              <input class="field__input" type="text" placeholder="Zermatt"/>
             </label>
             <label class="field">
-              <span class="field_label">Country</span>
-              <input class="field_input" type="text" placeholder="Switzerland"/>
+              <span class="field__label">Country</span>
+              <input class="field__input" type="text" placeholder="Switzerland"/>
             </label>
             <label class="field">
-              <span class="field_label">Your name</span>
-              <input class="field_input" type="text" placeholder="Rip Van Winkle"/>
+              <span class="field__label">Your name</span>
+              <input class="field__input" type="text" placeholder="John"/>
             </label>
             <label class="field">
-              <span class="field_label">Shooting category</span>
-              <select class="field_input"><option>Landscape</option><option>City</option></select>
+              <span class="field__label">Shooting category</span>
+              <select class="field__input"><option>Landscape</option><option>City</option></select>
             </label>
             <label class="field field--wide">
-              <span class="field_label">What to focus on?</span>
-              <textarea class="field_input" rows="3" placeholder="Warm sunrises, cable cars, panoramic views of the Matterhorn"></textarea>
+              <span class="field__label">What to focus on?</span>
+              <textarea class="field__input" rows="3" placeholder="Warm sunrises, cable cars, panoramic views of the Matterhorn"></textarea>
             </label>
           </div>
 
@@ -126,9 +126,9 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container site-footer_inner">
-      <p class="site-footer_copy">© 2025, Talking Travel.</p>
-      <ul class="site-footer_links" role="list">
+    <div class="container site-footer__inner">
+      <p class="site-footer__copy">© 2025, Talking Travel.</p>
+      <ul class="site-footer__links" role="list">
         <li><a class="link" href="index.html">Home</a></li>
         <li><a class="link" href="blog.html" aria-current="page">Blog</a></li>
         <li><a class="link" href="index.html#gallery">Gallery</a></li>
