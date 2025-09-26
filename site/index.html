@@ -7,6 +7,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/hero.css">
 </head>
 <body>
   <a class="skip-link" href="#main">To the contents</a>
@@ -14,7 +18,7 @@
   <header class="site-header">
     <div class="container site-header__inner">
       <a class="logo" href="index.html" aria-label="Talking Travel - to the main page">
-        <span class="logo__mark">✈︎</span><span class="logo__text">Talking <strong>Travel</strong></span>
+        <span class="logo__text">Talking <strong>Travel</strong></span>
       </a>
 
       <nav class="nav" aria-label="Main menu">
@@ -29,59 +33,58 @@
   </header>
 
   <main id="main">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="container hero__grid">
-        <div class="hero__content">
-          <p class="eyebrow">Letʼs talk about</p>
-          <h1 id="hero-title" class="hero__title">your next trip!</h1>
-          <p class="hero__lead">
-            Share your favorite destination, and we will add it to our next blog post.
-          </p>
-          <div class="hero__actions">
-            <a class="btn btn--primary" href="#form">Share your story</a>
-            <a class="btn btn--ghost" href="blog.html">Watch highlights</a>
-          </div>
-        </div>
-        <figure class="hero__media">
-          <img src="https://picsum.photos/960/640?random=1" alt="Mountain coastline and sea at dawn"/>
-        </figure>
-      </div>
-    </section>
+
+<section class="hero hero--cover" aria-labelledby="hero-title">
+  <div class="container hero__content">
+    <h1 id="hero-title">
+      <span class="hero__title-strong">Let’s talk</span>
+      about your next trip!
+    </h1>
+    <p class="hero__lead">
+      Share your favorite travel destination and we will feature it in our next blog post.
+    </p>
+    <div class="hero__actions">
+      <a class="btn btn--primary" href="#form">Share your story</a>
+      <a class="btn btn--ghost" href="blog.html">Watch highlights</a>
+    </div>
+  </div>
+</section>
 
     <section class="section" aria-labelledby="feat-title">
-      <div class="container">
-        <div class="feature">
-          <figure class="feature__media">
-            <img src="https://picsum.photos/600/400?random=2" alt="Alpine peak and mountaineer"/>
-          </figure>
-          <div class="feature__content">
-            <p class="eyebrow">Featured destination</p>
-            <h2 id="feat-title" class="section__title">Our Swiss adventure blog</h2>
-            <p>Want to see what Switzerland looks like in winter? Go to the article with the best photos and itineraries.</p>
-            <p><a class="link" href="blog.html">Watch now →</a></p>
-          </div>
-        </div>
+  <div class="container">
+    <article class="feature">
+      <figure class="feature__media">
+        <img src="img/featured.jpg" alt="Alps and a hiker">
+      </figure>
+
+      <div class="feature__content">
+        <p class="eyebrow eyebrow--brand">Featured destination</p>
+        <h2 id="feat-title" class="section__title">Our swiss adventure blog</h2>
+        <p>Visiting the Swiss Alps? Want to know the requirements on travelling to Switzerland during the pandemic? Our blog might help!</p>
+        <p><a class="link" href="blog.html">Watch now →</a></p>
       </div>
-    </section>
+    </article>
+  </div>
+</section>
 
-    <section class="section" aria-labelledby="discover-title" id="gallery">
+
+    <section class="section section--center" id="gallery" aria-labelledby="discover-title">
       <div class="container">
-        <p class="eyebrow">Join our adventures</p>
+        <p class="eyebrow eyebrow--brand">Join our adventures</p>
         <h2 id="discover-title" class="section__title">Discover the world with us</h2>
-
-        <ul class="card-grid" role="list">
-          <li class="card">
+        <ul class="card-grid">
+         <li class="card">
             <a class="card__link" href="blog.html">
-              <img class="card__img" src="https://picsum.photos/480/360?random=3" alt="The icy coast of Iceland"/>
-              <div class="card__body">
+             <img class="card__img" src="img/iceland.jpg" alt="Iceland">
+             <div class="card__body">
                 <h3 class="card__title">Iceland</h3>
                 <p class="card__meta">Discover</p>
-              </div>
-            </a>
-          </li>
+                 </div>
+               </a>
+             </li>
           <li class="card">
             <a class="card__link" href="blog.html">
-              <img class="card__img" src="https://picsum.photos/480/360?random=4" alt="Narrow streets and houses in Italy"/>
+              <img class="card__img" src="img/italy.jpg" alt="Narrow streets and houses in Italy"/>
               <div class="card__body">
                 <h3 class="card__title">Italy</h3>
                 <p class="card__meta">Discover</p>
@@ -90,7 +93,7 @@
           </li>
           <li class="card">
             <a class="card__link" href="blog.html">
-              <img class="card__img" src="https://picsum.photos/480/360?random=5" alt="The nighttime metropolis of Dubai"/>
+              <img class="card__img" src="img/dubai.jpg" alt="The nighttime metropolis of Dubai"/>
               <div class="card__body">
                 <h3 class="card__title">Dubai</h3>
                 <p class="card__meta">Discover</p>
@@ -99,7 +102,7 @@
           </li>
           <li class="card">
             <a class="card__link" href="blog.html">
-              <img class="card__img" src="https://picsum.photos/480/360?random=6" alt="The turquoise lakes of Patagonia"/>
+              <img class="card__img" src="img/patagonia.jpg" alt="The turquoise lakes of Patagonia"/>
               <div class="card__body">
                 <h3 class="card__title">Patagonia</h3>
                 <p class="card__meta">Discover</p>
