@@ -1,145 +1,219 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Talking Travel - Hello Switzerland!</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles/main.css" />
-  <link rel="stylesheet" href="styles/base.css">
-  <link rel="stylesheet" href="styles/layout.css">
-  <link rel="stylesheet" href="styles/components.css">
-  <link rel="stylesheet" href="styles/hero.css">
-  <link rel="stylesheet" href="styles/blog.css">
-</head>
-<body>
-  <a class="skip-link" href="#main">To the contents</a>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Talking Travel - Hello Switzerland!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/layout.css" />
+    <link rel="stylesheet" href="styles/components.css" />
+    <link rel="stylesheet" href="styles/hero.css" />
+    <link rel="stylesheet" href="styles/blog.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">To the contents</a>
 
-  <header class="site-header">
-    <div class="container site-header__inner">
-      <a class="logo" href="index.html" aria-label="Talking Travel - to the main page">
-        <span class="logo__text">Talking <strong>Travel</strong></span>
-      </a>
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a
+          class="logo"
+          href="index.html"
+          aria-label="Talking Travel - to the main page"
+        >
+          <span class="logo__text">Talking <strong>Travel</strong></span>
+        </a>
 
-      <nav class="nav" aria-label="Главное меню">
-        <ul class="nav__list">
-          <li class="nav__item"><a class="nav__link" href="index.html">Home</a></li>
-          <li class="nav__item"><a class="nav__link nav__link--active" aria-current="page" href="blog.html">Blog</a></li>
-          <li class="nav__item"><a class="nav__link" href="index.html#gallery">Gallery</a></li>
-          <li class="nav__item"><a class="nav__link" href="index.html#contact">Contact</a></li>
-        </ul>
-      </nav>
+        <nav class="nav" aria-label="Главное меню">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a class="nav__link" href="index.html">Home</a>
+            </li>
+            <li class="nav__item">
+              <a
+                class="nav__link nav__link--active"
+                aria-current="page"
+                href="blog.html"
+                >Blog</a
+              >
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="index.html#gallery">Gallery</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="index.html#contact">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <article class="article">
+        <header class="article__header">
+          <div class="container">
+            <p class="eyebrow eyebrow--brand">Popular destinations</p>
+            <h1 class="article__title">Hello Switzerland!</h1>
+
+            <figure class="article__cover">
+              <img src="img/featured.jpg" alt="The Matterhorn at sunrise" />
+              <button class="play-btn" type="button" aria-label="Play video">
+                ▶
+              </button>
+            </figure>
+
+            <p class="article__meta">
+              Author: <strong>Darrell Steward</strong> — photographer
+            </p>
+          </div>
+        </header>
+      <!--адвентуре стори-->
+        <section class="article__section" aria-labelledby="story-title">
+  <div class="container">
+    <h2 id="story-title" class="article__subtitle">Our Swiss adventure story</h2>
+    <p class="article__lead">
+      Location location location! Zermatt Switzerland offers majestic landscapes that cannot be seen elsewhere. The Matterhorn for example. This peak is a sight to behold and seeing it upclose is more magical that we’ve ever imagined. Want to enjoy a nice and cozy swiss breakfast? Well, Zermatt will never fail you.
+    </p>
+
+    <div class="story-grid">
+      <div class="media-mosaic">
+        <img src="img/callout swiss winter.jpg" alt="Snowy peak">
+        <img src="img/callout switzerland mountains.jpg" alt="Autumn mountain">
+        <img src="img/callout switzerland sunset.jpg" alt="Village and mountains at sunset">
+      </div>
+
+      <div class="story-text">
+  <blockquote class="quote">
+    <p class="quote__text">“ One of the best hikes we’ve done so far…”</p>
+  </blockquote>
+
+  <p class="article__para">
+    As one of the alpine countries, landlocked Switzerland with her mountains has to compete not only with her neighbours but with other destinations. There are, e.g., no coastal resorts.
+  </p>
+  <p class="article__para">
+    The advantage is that tourism in Switzerland benefits of a large diversity of beautiful landscapes in a relatively small space.
+  </p>
+
+  <a href="#" class="btn btn--primary">View full gallery</a>
+</div>
     </div>
-  </header>
+    <p class="article__footnote">
+      The advantage is that tourism in Switzerland benefits of a large diversity of beautiful landscapes in a relatively small space, offering many possibilities for various activities all the year round, in all seasons, although primarily in summer and winter. The offers of nature as well as culture are manifold, but unfortunately price levels throughout the country are high, and this can discourage many people from visiting. Despite this major drawback, millions of visitors from all over the world arrive(d) every year.
+    </p>
+  </div>
+</section>
+      <!--хайлайты-->
+          <section class="article__section" id="highlights" aria-labelledby="hl-title">
+  <div class="container">
+    <h2 id="hl-title" class="section__title section__title--center">Highlights</h2>
 
-  <main id="main">
-    <article class="article">
-      <header class="article__header">
+    <ul class="hl-grid">
+      <li class="hl-card">
+        <figure class="hl-figure">
+          <img src="img/highlight 1.jpg" alt="Alpine valleys" class="hl-img">
+          <figcaption class="hl-caption">Alpine valleys</figcaption>
+        </figure>
+      </li>
+
+      <li class="hl-card">
+        <figure class="hl-figure">
+          <img src="img/highlight 2.jpg" alt="Trains and viaducts" class="hl-img">
+          <figcaption class="hl-caption">Trains and viaducts</figcaption>
+        </figure>
+      </li>
+
+      <li class="hl-card">
+        <figure class="hl-figure">
+          <img src="img/highlight 3.jpg" alt="Cable cars" class="hl-img">
+          <figcaption class="hl-caption">Cable cars</figcaption>
+        </figure>
+      </li>
+    </ul>
+
+    <aside class="disclaimer">
+      <strong>Disclaimer</strong>
+      <p>
+        The COVID-19 pandemic has dealt a severe blow to the tourism business in Switzerland. Although it is a minor position in the Swiss export balance, it is nevertheless of considerable importance for those regions of the country that attract domestic and foreign visitors. As a consequence of the lockdown measures, combined with close borders and travel bans, tourism collapsed and only briefly and partly recovered in summer. Its future is uncertain and depends on people’s (future guests’) attitudes and decisions as much as on the economy, political measures and, of course, the progress of the pandemic.
+      </p>
+    </aside>
+  </div>
+</section>
+
+      <section
+        class="section section--muted"
+        aria-labelledby="form-title"
+        id="form"
+      >
         <div class="container">
-          <p class="eyebrow">Popular destinations</p>
-          <h1 class="article__title">Hello Switzerland!</h1>
-          <figure class="article__cover">
-            <img src="https://picsum.photos/1200/600?random=10" alt="Matterhorn - snowy peak in the clouds" />
-            <figcaption class="visually-hidden">Zermatt, Matterhorn</figcaption>
-          </figure>
-          <p class="article__meta">Author: <strong>Danii Stewart</strong> - photographer</p>
+          <div class="section-header">
+            <p class="eyebrow">Letʼs build a community</p>
+            <h2 id="form2-title" class="section__title">
+              Join our next destination
+            </h2>
+          </div>
+
+          <form class="form" aria-describedby="form-help">
+            <h2 id="form-title" class="section__title">Share your travels</h2>
+            <p id="form-help" class="form__hint">
+              Suggest a new direction - the best ideas will be featured on our
+              blog.
+            </p>
+
+            <div class="form__grid">
+              <label class="field">
+                <span class="field__label">Destination name</span>
+                <input class="field__input" type="text" placeholder="Zermatt" />
+              </label>
+              <label class="field">
+                <span class="field__label">Country</span>
+                <input
+                  class="field__input"
+                  type="text"
+                  placeholder="Switzerland"
+                />
+              </label>
+              <label class="field">
+                <span class="field__label">Your name</span>
+                <input class="field__input" type="text" placeholder="John" />
+              </label>
+              <label class="field">
+                <span class="field__label">Shooting category</span>
+                <select class="field__input">
+                  <option>Landscape</option>
+                  <option>City</option>
+                </select>
+              </label>
+              <label class="field field--wide">
+                <span class="field__label">What to focus on?</span>
+                <textarea
+                  class="field__input"
+                  rows="3"
+                  placeholder="Warm sunrises, cable cars, panoramic views of the Matterhorn"
+                ></textarea>
+              </label>
+            </div>
+
+            <button class="btn btn--primary" type="button">Submit</button>
+          </form>
         </div>
-      </header>
+      </section>
+    </main>
 
-      <div class="container article__content">
-        <section aria-labelledby="story-head">
-          <h2 id="story-head">Our Swiss adventure story</h2>
-          <p>
-            The lockdown is over, and we headed to Zermatt. This small town at the foot of the Matterhorn welcomes visitors with the cleanest air and routes to suit every taste.
-          </p>
-        </section>
-
-        <section class="media-grid" aria-label="Gallery">
-          <img src="https://picsum.photos/400/480?random=11" alt="Pine forest and fog" />
-          <img src="https://picsum.photos/400/240?random=12" alt="Snowy peaks and lake" />
-          <img src="https://picsum.photos/400/240?random=13" alt="Sunny glade in the mountains" />
-        </section>
-
-        <blockquote class="quote">
-          <p class="quote__text">«One of the best hikes weʼve done so far…»</p>
-          <p class="quote__note">Swiss routes are not the highest in terms of elevation gain, but they are very picturesque and friendly.</p>
-        </blockquote>
-
-        <section aria-labelledby="highlights-head">
-          <h2 id="highlights-head">Highlights</h2>
-          <div class="card-grid card-grid--three">
-            <article class="card card--flat">
-              <img class="card__img" src="https://picsum.photos/480/320?random=14" alt="Valley and pastures" />
-              <div class="card__body"><h3 class="card__title">Alpine valleys</h3></div>
-            </article>
-            <article class="card card--flat">
-              <img class="card__img" src="https://picsum.photos/480/320?random=15" alt="Viaduct and train" />
-              <div class="card__body"><h3 class="card__title">Trains and viaducts</h3></div>
-            </article>
-            <article class="card card--flat">
-              <img class="card__img" src="https://picsum.photos/480/320?random=16" alt="Cable car" />
-              <div class="card__body"><h3 class="card__title">Cable cars</h3></div>
-            </article>
-          </div>
-        </section>
-
-        <section aria-labelledby="note-head">
-          <h2 id="note-head">Disclaimer</h2>
-          <p class="note">
-            The pandemic has hit tourism in the region hard, but the industry is recovering. Plan your trips with local regulations in mind.
-          </p>
-        </section>
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <p class="site-footer__copy">© 2025, Talking Travel.</p>
+        <ul class="site-footer__links" role="list">
+          <li><a class="link" href="index.html">Home</a></li>
+          <li><a class="link" href="blog.html" aria-current="page">Blog</a></li>
+          <li><a class="link" href="index.html#gallery">Gallery</a></li>
+          <li><a class="link" href="index.html#contact">Contact</a></li>
+        </ul>
       </div>
-    </article>
-
-    <section class="section section--muted" aria-labelledby="form2-title" id="form">
-      <div class="container">
-        <p class="eyebrow">Letʼs build a community</p>
-        <h2 id="form2-title" class="section__title">Join our next destination</h2>
-
-        <form class="form" aria-describedby="form2-help">
-          <p id="form2-help" class="form__hint">Suggest a new direction - the best ideas will be featured on our blog.</p>
-
-          <div class="form__grid">
-            <label class="field">
-              <span class="field__label">Destination name</span>
-              <input class="field__input" type="text" placeholder="Zermatt"/>
-            </label>
-            <label class="field">
-              <span class="field__label">Country</span>
-              <input class="field__input" type="text" placeholder="Switzerland"/>
-            </label>
-            <label class="field">
-              <span class="field__label">Your name</span>
-              <input class="field__input" type="text" placeholder="John"/>
-            </label>
-            <label class="field">
-              <span class="field__label">Shooting category</span>
-              <select class="field__input"><option>Landscape</option><option>City</option></select>
-            </label>
-            <label class="field field--wide">
-              <span class="field__label">What to focus on?</span>
-              <textarea class="field__input" rows="3" placeholder="Warm sunrises, cable cars, panoramic views of the Matterhorn"></textarea>
-            </label>
-          </div>
-
-          <button class="btn btn--primary" type="button">Submit</button>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container site-footer__inner">
-      <p class="site-footer__copy">© 2025, Talking Travel.</p>
-      <ul class="site-footer__links" role="list">
-        <li><a class="link" href="index.html">Home</a></li>
-        <li><a class="link" href="blog.html" aria-current="page">Blog</a></li>
-        <li><a class="link" href="index.html#gallery">Gallery</a></li>
-        <li><a class="link" href="index.html#contact">Contact</a></li>
-      </ul>
-    </div>
-  </footer>
-</body>
+    </footer>
+  </body>
 </html>

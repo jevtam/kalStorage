@@ -1,208 +1,317 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Talking Travel - Main page</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles/main.css" />
-  <link rel="stylesheet" href="styles/base.css">
-  <link rel="stylesheet" href="styles/layout.css">
-  <link rel="stylesheet" href="styles/components.css">
-  <link rel="stylesheet" href="styles/hero.css">
-</head>
-<body>
-  <a class="skip-link" href="#main">To the contents</a>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Talking Travel - Main page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/layout.css" />
+    <link rel="stylesheet" href="styles/components.css" />
+    <link rel="stylesheet" href="styles/hero.css" />
+    <link rel="stylesheet" href="styles/recent.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">To the contents</a>
 
-  <header class="site-header">
-    <div class="container site-header__inner">
-      <a class="logo" href="index.html" aria-label="Talking Travel - to the main page">
-        <span class="logo__text">Talking <strong>Travel</strong></span>
-      </a>
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a
+          class="logo"
+          href="index.html"
+          aria-label="Talking Travel - to the main page"
+        >
+          <span class="logo__text">Talking <strong>Travel</strong></span>
+        </a>
 
-      <nav class="nav" aria-label="Main menu">
-        <ul class="nav__list">
-          <li class="nav__item"><a class="nav__link nav__link--active" aria-current="page" href="index.html">Home</a></li>
-          <li class="nav__item"><a class="nav__link" href="blog.html">Blog</a></li>
-          <li class="nav__item"><a class="nav__link" href="#gallery">Gallery</a></li>
-          <li class="nav__item"><a class="nav__link" href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main id="main">
-
-<section class="hero hero--cover" aria-labelledby="hero-title">
-  <div class="container hero__content">
-    <h1 id="hero-title">
-      <span class="hero__title-strong">Let’s talk</span>
-      about your next trip!
-    </h1>
-    <p class="hero__lead">
-      Share your favorite travel destination and we will feature it in our next blog post.
-    </p>
-    <div class="hero__actions">
-      <a class="btn btn--primary" href="#form">Share your story</a>
-      <a class="btn btn--ghost" href="blog.html">Watch highlights</a>
-    </div>
-  </div>
-</section>
-
-    <section class="section" aria-labelledby="feat-title">
-  <div class="container">
-    <article class="feature">
-      <figure class="feature__media">
-        <img src="img/featured.jpg" alt="Alps and a hiker">
-      </figure>
-
-      <div class="feature__content">
-        <p class="eyebrow eyebrow--brand">Featured destination</p>
-        <h2 id="feat-title" class="section__title">Our swiss adventure blog</h2>
-        <p>Visiting the Swiss Alps? Want to know the requirements on travelling to Switzerland during the pandemic? Our blog might help!</p>
-        <p><a class="link" href="blog.html">Watch now →</a></p>
+        <nav class="nav" aria-label="Main menu">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a
+                class="nav__link nav__link--active"
+                aria-current="page"
+                href="index.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="blog.html">Blog</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="#gallery">Gallery</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </nav>
       </div>
-    </article>
-  </div>
-</section>
+    </header>
 
-
-    <section class="section section--center" id="gallery" aria-labelledby="discover-title">
-      <div class="container">
-        <p class="eyebrow eyebrow--brand">Join our adventures</p>
-        <h2 id="discover-title" class="section__title">Discover the world with us</h2>
-        <ul class="card-grid">
-         <li class="card">
-            <a class="card__link" href="blog.html">
-             <img class="card__img" src="img/iceland.jpg" alt="Iceland">
-             <div class="card__body">
-                <h3 class="card__title">Iceland</h3>
-                <p class="card__meta">Discover</p>
-                 </div>
-               </a>
-             </li>
-          <li class="card">
-            <a class="card__link" href="blog.html">
-              <img class="card__img" src="img/italy.jpg" alt="Narrow streets and houses in Italy"/>
-              <div class="card__body">
-                <h3 class="card__title">Italy</h3>
-                <p class="card__meta">Discover</p>
-              </div>
-            </a>
-          </li>
-          <li class="card">
-            <a class="card__link" href="blog.html">
-              <img class="card__img" src="img/dubai.jpg" alt="The nighttime metropolis of Dubai"/>
-              <div class="card__body">
-                <h3 class="card__title">Dubai</h3>
-                <p class="card__meta">Discover</p>
-              </div>
-            </a>
-          </li>
-          <li class="card">
-            <a class="card__link" href="blog.html">
-              <img class="card__img" src="img/patagonia.jpg" alt="The turquoise lakes of Patagonia"/>
-              <div class="card__body">
-                <h3 class="card__title">Patagonia</h3>
-                <p class="card__meta">Discover</p>
-              </div>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section section--muted" aria-labelledby="form-title" id="form">
-      <div class="container">
-        <p class="eyebrow">Letʼs build a community</p>
-        <h2 id="form-title" class="section__title">Join our next destination</h2>
-
-        <form class="form" aria-describedby="form-help">
-          <p id="form-help" class="form__hint">
-            Suggest a new direction - the best ideas will be featured on our blog.
+    <main id="main">
+      <section class="hero hero--cover" aria-labelledby="hero-title">
+        <div class="container hero__content">
+          <h1 id="hero-title">
+            <span class="hero__title-strong">Let’s talk</span>
+            about your next trip!
+          </h1>
+          <p class="hero__lead">
+            Share your favorite travel destination and we will feature it in our
+            next blog post.
           </p>
-
-          <div class="form__grid">
-            <label class="field">
-              <span class="field__label">Destination name</span>
-              <input class="field__input" type="text" placeholder="Zermatt"/>
-            </label>
-
-            <label class="field">
-              <span class="field__label">Country</span>
-              <input class="field__input" type="text" placeholder="Switzerland"/>
-            </label>
-
-            <label class="field">
-              <span class="field__label">Your name</span>
-              <input class="field__input" type="text" placeholder="John"/>
-            </label>
-
-            <label class="field">
-              <span class="field__label">Shooting category</span>
-              <select class="field__input">
-                <option>Landscape</option>
-                <option>City</option>
-                <option>Wildlife</option>
-              </select>
-            </label>
-
-            <label class="field field--wide">
-              <span class="field__label">What to focus on?</span>
-              <textarea class="field__input" rows="3" placeholder="Warm sunrises, cable cars, panoramic views of the Matterhorn"></textarea>
-            </label>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#form">Share your story</a>
+            <a class="btn btn--ghost">Watch highlights</a>
           </div>
+        </div>
+      </section>
 
-          <button class="btn btn--primary" type="button">Submit</button>
-        </form>
-      </div>
-    </section>
+      <section class="section" aria-labelledby="feat-title">
+        <div class="container">
+          <article class="feature">
+            <figure class="feature__media">
+              <img src="img/featured.jpg" alt="Alps and a hiker" />
+            </figure>
 
-    <section class="section" aria-labelledby="recent-title" id="stories">
-      <div class="container">
-        <p class="eyebrow">Catch up to our posts</p>
-        <h2 id="recent-title" class="section__title">Recent story entries</h2>
-
-        <div class="list">
-          <article class="list-item">
-            <img class="list-item__img" src="https://picsum.photos/160/120?random=7" alt="Matterhorn at sunset"/>
-            <div class="list-item__body">
-              <h3 class="list-item__title"><a href="blog.html">Zermatt, Switzerland</a></h3>
-              <p class="list-item__text">The beauty of the Matterhorn. The best places to catch the sunrise.</p>
-            </div>
-          </article>
-
-          <article class="list-item">
-            <img class="list-item__img" src="https://picsum.photos/160/120?random=8" alt="Kyoto - old streets"/>
-            <div class="list-item__body">
-              <h3 class="list-item__title"><a href="blog.html">Kyoto, Japan</a></h3>
-              <p class="list-item__text">Quiet alleys and temples. The best views in&nbsp;blue hour.</p>
-            </div>
-          </article>
-
-          <article class="list-item">
-            <img class="list-item__img" src="https://picsum.photos/160/120?random=9" alt="Lofoten Islands - turquoise bays"/>
-            <div class="list-item__body">
-              <h3 class="list-item__title"><a href="blog.html">Lofoten Islands, Norway</a></h3>
-              <p class="list-item__text">Cold fjords and warm cottages - a 3-day itinerary.</p>
+            <div class="feature__content">
+              <p class="eyebrow">Featured destination</p>
+              <h2 id="feat-title" class="section__title">
+                Our swiss adventure blog
+              </h2>
+              <p>
+                Visiting the Swiss Alps? Want to know the requirements on
+                travelling to Switzerland during the pandemic? Our blog might
+                help!
+              </p>
+              <p><a class="link" href="blog.html">Watch now →</a></p>
             </div>
           </article>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
 
-  <footer class="site-footer" id="contact">
-    <div class="container site-footer__inner">
-      <p class="site-footer__copy">© 2025, Talking Travel.</p>
-      <ul class="site-footer__links" role="list">
-        <li><a class="link" href="index.html">Home</a></li>
-        <li><a class="link" href="blog.html">Blog</a></li>
-        <li><a class="link" href="#gallery">Gallery</a></li>
-        <li><a class="link" href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </footer>
-</body>
+      <section
+        class="section section--center"
+        id="gallery"
+        aria-labelledby="discover-title"
+      >
+        <div class="container">
+          <p class="eyebrow">Join our adventures</p>
+          <h2 id="discover-title" class="section__title">
+            Discover the world with us
+          </h2>
+          <ul class="card-grid">
+            <li class="card">
+              <a class="card__link" href="blog.html">
+                <img class="card__img" src="img/iceland.jpg" alt="Iceland" />
+                <div class="card__body">
+                  <h3 class="card__title">Iceland</h3>
+                  <p class="card__meta">Discover</p>
+                </div>
+              </a>
+            </li>
+            <li class="card">
+              <a class="card__link" href="blog.html">
+                <img
+                  class="card__img"
+                  src="img/italy.jpg"
+                  alt="Narrow streets and houses in Italy"
+                />
+                <div class="card__body">
+                  <h3 class="card__title">Italy</h3>
+                  <p class="card__meta">Discover</p>
+                </div>
+              </a>
+            </li>
+            <li class="card">
+              <a class="card__link" href="blog.html">
+                <img
+                  class="card__img"
+                  src="img/dubai.jpg"
+                  alt="The nighttime metropolis of Dubai"
+                />
+                <div class="card__body">
+                  <h3 class="card__title">Dubai</h3>
+                  <p class="card__meta">Discover</p>
+                </div>
+              </a>
+            </li>
+            <li class="card">
+              <a class="card__link" href="blog.html">
+                <img
+                  class="card__img"
+                  src="img/patagonia.jpg"
+                  alt="The turquoise lakes of Patagonia"
+                />
+                <div class="card__body">
+                  <h3 class="card__title">Patagonia</h3>
+                  <p class="card__meta">Discover</p>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section
+        class="section section--muted"
+        aria-labelledby="form-title"
+        id="form"
+      >
+        <div class="container">
+          <div class="section-header">
+            <p class="eyebrow">Letʼs build a community</p>
+            <h2 id="form-title" class="section__title">
+              Join our next destination
+            </h2>
+          </div>
+
+          <form class="form" aria-describedby="form-help">
+            <h2 id="form-title" class="section__title">Share your travels</h2>
+            <p id="form-help" class="form__hint">
+              Suggest a new direction - the best ideas will be featured on our
+              blog.
+            </p>
+
+            <div class="form__grid">
+              <label class="field">
+                <span class="field__label">Destination name</span>
+                <input class="field__input" type="text" placeholder="Zermatt" />
+              </label>
+
+              <label class="field">
+                <span class="field__label">Country</span>
+                <input
+                  class="field__input"
+                  type="text"
+                  placeholder="Switzerland"
+                />
+              </label>
+
+              <label class="field">
+                <span class="field__label">Your name</span>
+                <input class="field__input" type="text" placeholder="John" />
+              </label>
+
+              <label class="field">
+                <span class="field__label">Shooting category</span>
+                <select class="field__input">
+                  <option>Landscape</option>
+                  <option>City</option>
+                  <option>Wildlife</option>
+                </select>
+              </label>
+
+              <label class="field field--wide">
+                <span class="field__label">What to focus on?</span>
+                <textarea
+                  class="field__input"
+                  rows="3"
+                  placeholder="Warm sunrises, cable cars, panoramic views of the Matterhorn"
+                ></textarea>
+              </label>
+            </div>
+
+            <button class="btn btn--primary" type="button">Submit</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="section" id="stories" aria-labelledby="recent-title">
+        <div class="container">
+          <p class="eyebrow eyebrow--brand">Catch up to our posts</p>
+          <h2 id="recent-title" class="section__title">Recent story entries</h2>
+
+          <div class="recent-grid">
+            <article class="recent-card recent-card--large">
+              <div class="recent-card__frame">
+                <img
+                  class="recent-card__img"
+                  src="img/zermatt.jpg"
+                  alt="Zermatt, Switzerland"
+                />
+                <div class="recent-card__panel">
+                  <div class="recent-card__panel-text">
+                    <h3 class="recent-card__title">Zermatt, Switzerland</h3>
+                    <p class="recent-card__text">
+                      Marvel on the beauty of the iconic Matterhorn. Find the
+                      best places to stay that has the best views of this
+                      peak...
+                    </p>
+                  </div>
+                  <button
+                    class="recent-card__play"
+                    type="button"
+                    aria-label="Play"
+                  >
+                    ▶
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <div class="recent-list">
+              <article class="recent-card">
+                <img
+                  class="recent-card__thumb"
+                  src="img/tuscany.jpg"
+                  alt="Tuscany, Italy"
+                />
+                <div class="recent-card__body">
+                  <h3 class="recent-card__title">Tuscany, Italy</h3>
+                  <p class="recent-card__text">
+                    Renaissance art, architecture and rolling hills.
+                  </p>
+                </div>
+              </article>
+
+              <article class="recent-card">
+                <img
+                  class="recent-card__thumb"
+                  src="img/kyoto.jpg"
+                  alt="Kyoto, Japan"
+                />
+                <div class="recent-card__body">
+                  <h3 class="recent-card__title">Kyoto, Japan</h3>
+                  <p class="recent-card__text">
+                    Quiet alleys and temples. Best views in blue hour.
+                  </p>
+                </div>
+              </article>
+
+              <article class="recent-card">
+                <img
+                  class="recent-card__thumb"
+                  src="img/lofoten.jpg"
+                  alt="Lofoten Islands, Norway"
+                />
+                <div class="recent-card__body">
+                  <h3 class="recent-card__title">Lofoten Islands, Norway</h3>
+                  <p class="recent-card__text">
+                    Arctic peaks and postcard-perfect fishing villages.
+                  </p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="contact">
+      <div class="container site-footer__inner">
+        <p class="site-footer__copy">© 2025, Talking Travel.</p>
+        <ul class="site-footer__links" role="list">
+          <li><a class="link" href="index.html">Home</a></li>
+          <li><a class="link" href="blog.html">Blog</a></li>
+          <li><a class="link" href="#gallery">Gallery</a></li>
+          <li><a class="link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </footer>
+  </body>
 </html>
