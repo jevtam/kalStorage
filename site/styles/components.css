@@ -20,12 +20,14 @@
   border-color: var(--border);
   color: #111827;
 }
+.btn--ghost:hover {
+  filter: brightness(1.35);
+}
 .link {
   color: var(--brand);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
-
 .card-grid {
   display: grid;
   gap: 28px;
@@ -35,41 +37,26 @@
   grid-template-columns: 1fr;
 }
 
-@media (min-width: 640px) {
-  .card-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-@media (min-width: 1024px) {
-  .card-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-}
-
 .card {
   background: #fff;
   border: 1px solid var(--border);
   border-radius: 18px;
   overflow: hidden;
 }
-
 .card__link {
   display: block;
   height: 100%;
 }
-
 .card__img {
   width: 100%;
   height: 280px;
   object-fit: cover;
   display: block;
 }
-
 .card__body {
   padding: 0.75rem 0.875rem 1rem;
   text-align: center;
 }
-
 .card__title {
   margin: 0 0 0.25rem;
   font-size: 1.15rem;
@@ -80,13 +67,11 @@
   font-size: 1rem;
   color: var(--brand);
 }
-
 .feature .section__title {
   font-size: clamp(1.5rem, 1.1rem + 1.2vw, 2rem);
   line-height: 1.15;
   margin-bottom: 0.5rem;
 }
-
 .list {
   display: grid;
   gap: 0.75rem;
@@ -118,7 +103,6 @@
   color: var(--text-muted);
   font-size: 0.95rem;
 }
-
 .form {
   background: #fff;
   border: 1px solid var(--border);
@@ -157,6 +141,12 @@
   border-color: var(--brand);
   box-shadow: 0 0 0 3px var(--brand-weak);
 }
+.field__input[type="text"],
+.field__input[type="email"],
+.field__input[type="url"],
+textarea.field__input {
+  resize: none;
+}
 
 @media (min-width: 640px) {
   .form__grid {
@@ -165,10 +155,12 @@
   .field--wide {
     grid-column: span 2;
   }
+  .card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
-.field__input[type="text"],
-.field__input[type="email"],
-.field__input[type="url"],
-textarea.field__input {
-  resize: none;
+@media (min-width: 1024px) {
+  .card-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }

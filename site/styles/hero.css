@@ -14,19 +14,16 @@
     ),
     url("../img/hero.jpg") center right / cover no-repeat;
 }
-
 .hero__content {
   position: relative;
   max-width: 640px;
   margin-left: 0;
   text-align: left;
 }
-
 .hero--cover .container {
   margin-left: 2rem;
   margin-right: auto;
 }
-
 .hero__title-strong {
   display: block;
   color: var(--brand);
@@ -34,19 +31,16 @@
   font-size: clamp(2.25rem, 1.5rem + 2.6vw, 3.25rem);
   line-height: 1.05;
 }
-
 .hero__lead {
   color: #e5e7eb;
   margin: 0 0 1.25rem;
   max-width: 56ch;
 }
-
 .hero__actions {
   display: inline-flex;
   gap: 0.75rem;
   flex-wrap: wrap;
 }
-
 .site-header__inner {
   padding-block: 0.65rem;
 }
