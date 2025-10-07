@@ -1,0 +1,35 @@
+.hl-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 320px);
+  justify-content: center;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.hl-figure {
+  margin: 0;
+}
+.hl-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+}
+.hl-caption {
+  margin-top: 0.5rem;
+  text-align: center;
+  font-style: italic;
+  color: var(--text-muted);
+}
+.disclaimer {
+  margin-top: 1.75rem;
+  background: var(--muted);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+}
+.disclaimer strong {
+  display: block;
+  margin-bottom: 0.25rem;
+}

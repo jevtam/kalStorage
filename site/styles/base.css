@@ -48,10 +48,7 @@ a {
 
   --radius: 16px;
   --brand: #6d28d9;
-  --brand-weak: #ede9fe;
   --muted: #f3f4f6;
-  --border: #e5e7eb;
-  --text-muted: #4b5563;
 }
 body {
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica,
