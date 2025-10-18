@@ -1,1 +1,41 @@
-SESBIAN LEX
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SEBIAN LEX</title>
+  <link rel="stylesheet" href="styles/tokens.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/app.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1 class="topbar__title">To Do List</h1>
+  </header>
+
+  <main id="app" class="app">
+    <form id="task-form" class="task-form" autocomplete="off">
+      <input id="title" name="title" class="field" placeholder="Title…" required>
+      <input id="note"  name="note"  class="field" placeholder="About…">
+      <button class="btn btn--accent" type="submit" aria-label="Add">＋</button>
+    </form>
+
+    <section id="empty" class="empty" hidden>
+      <p>No tasks</p>
+    </section>
+
+    <ul id="list" class="list" role="list"></ul>
+  </main>
+
+  <dialog id="confirm" class="dialog">
+    <h2 class="dialog__title">Delete this task?</h2>
+    <div class="dialog__actions">
+      <button class="btn btn--ghost" value="no">No</button>
+      <button class="btn btn--accent" value="yes">Yes</button>
+    </div>
+  </dialog>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
