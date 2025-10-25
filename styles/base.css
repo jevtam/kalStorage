@@ -1,1 +1,24 @@
-SESBIAN LEX
+* {
+  box-sizing: border-box;
+}
+html.body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--bg);
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+button {
+  font: inherit;
+  cursor: pointer;
+}
+.container {
+  width: min(720px, 100% - 24px);
+  margin-inline: auto;
+}

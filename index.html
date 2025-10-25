@@ -10,29 +10,44 @@
   <link rel="stylesheet" href="styles/app.css">
 </head>
 <body>
-  <header class="topbar">
+  <header class="topbar container">
     <h1 class="topbar__title">To Do List</h1>
+    <button class="icon-btn" type="button" title="Info">
+      <img src="img/infoButton.png" alt="" width="20" height="20" />
+      <span class="vh">Info</span>
+    </button>
   </header>
 
-  <main id="app" class="app">
+  <main class="app container">
     <form id="task-form" class="task-form" autocomplete="off">
-      <input id="title" name="title" class="field" placeholder="Title…" required>
-      <input id="note"  name="note"  class="field" placeholder="About…">
-      <button class="btn btn--accent" type="submit" aria-label="Add">＋</button>
+      <input id="title" name="title" class="field" placeholder="Title…" required />
+      <input id="note" name="note" class="field" placeholder="About…" />
+      <button class="icon-btn icon-btn--accent" type="submit" title="Add">
+        <img src="img/addButton.png" alt="" width="20" height="20" />
+        <span class="vh">Add</span>
+      </button>
     </form>
 
-    <section id="empty" class="empty" hidden>
+    <section id="empty" class="empty">
+      <img src="img/netButton.png" alt="" width="24" height="24" />
       <p>No tasks</p>
     </section>
 
-    <ul id="list" class="list" role="list"></ul>
+    <ul id="list" class="list" role="list">
+    </ul>
   </main>
 
-  <dialog id="confirm" class="dialog">
-    <h2 class="dialog__title">Delete this task?</h2>
+  <dialog id="confirm" class="dialog card">
+    <p class="dialog__title">Delete this task?</p>
     <div class="dialog__actions">
-      <button class="btn btn--ghost" value="no">No</button>
-      <button class="btn btn--accent" value="yes">Yes</button>
+      <button class="btn btn--ghost" value="no">
+        <img src="img/cancelButton.png" alt="" width="18" height="18" />
+        <span> No</span>
+      </button>
+      <button class="btn btn--accent" value="yes">
+        <img src="img/daButton.png" alt="" width="18" height="18" />
+        <span> Yes</span>
+      </button>
     </div>
   </dialog>
 
