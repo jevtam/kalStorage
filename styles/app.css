@@ -1,111 +1,122 @@
-.topbar {
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid var(--muted);
-}
-.topbar__title {
-  margin: 0;
-  font-size: 1.125rem;
-}
-
 .app {
-  width: min(720px, 100% - 24px);
-  margin: 16px auto;
-  display: grid;
-  gap: 12px;
-}
-
-.task-form {
-  display: flex;
-  gap: 8px;
-  position: sticky;
-  top: 0.5rem;
-  z-index: 10;
-}
-.list {
-  display: grid;
-  gap: 10px;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-.empty {
-  text-align: center;
-  opacity: 0.7;
-  padding: 2rem 0;
-}
-
-.task {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 10px;
-  align-items: center;
-  padding: 10px 12px;
-}
-.task__title {
-  font-weight: 600;
-  margin: 0;
-}
-.task__note {
-  margin: 2px 0 0;
-  opacity: 0.85;
-  font-size: 0.9rem;
-}
-.task__done {
-  accent-color: var(--accent);
-}
-.task__actions {
-  display: flex;
-  gap: 6px;
-}
-.icon-btn {
-  background: transparent;
-  border: 1px solid var(--muted);
-  color: var(--text);
-  border-radius: 8px;
-  padding: 0.4rem 0.5rem;
-}
-.task--completed .task__title,
-.task--completed .task__note {
-  text-decoration: line-through;
-  opacity: 0.6;
-}
-
-.container {
+  box-sizing: border-box;
   width: 100%;
-  max-width: 720px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 12px;
-  padding-right: 12px;
+  max-width: 430px;
+  min-height: 640px;
+  max-height: 844px;
+  margin: 16px;
+  padding: 24px 20px 32px;
+  border-radius: 24px;
+  border: 3px solid var(--accent);
+  background: #050507;
+}
+.app__inner {
+  width: 100%;
+  max-width: 360px;
+  background: #050507;
+  border-radius: 6px;
+  box-shadow: 0 0 0 2px #ff8303, 0 0 40px rgba(0, 0, 0, 0.6);
+  padding: 24px 16px 24px;
+  display: grid;
+  gap: 16px;
+  height: 800px;
 }
 .topbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.75rem 0;
+  margin-bottom: 16px;
 }
-.app {
-  display: grid;
-  gap: 12px;
-  padding-block: 8px;
+.topbar__title {
+  margin: 0;
+  font-size: 1.1rem;
 }
 .task-form {
-  display: flex;
-  gap: 8px;
-  position: sticky;
-  top: 6px;
-  z-index: 5;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: center;
+}
+.task-form__fields {
+  display: grid;
+  gap: 10px;
+}
+#title {
+  grid-column: 1 / -1;
 }
 .field {
-  flex: 1 1 0;
+  width: 100%;
+  background: #0b0c10;
+  border-radius: 12px;
+  border: 2px solid var(--accent);
+  padding: 10px 14px;
+  color: #f5f5f5;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+.field::placeholder {
+  color: #c4c4c4;
+}
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.6rem;
+  border-radius: 4px;
+  border: 1px solid var(--accent);
+  background: #131313;
+  color: var(--text, #f5f5f5);
+}
+.icon-btn img {
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+.icon-btn--accent {
+  background: var(--accent);
+  color: #111;
+}
+.btn-add {
+  width: 80px;
+  min-width: 80px;
+  height: 80px;
+  border-radius: 16px;
+  border: 3px solid var(--accent);
+  background: #141414;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  cursor: pointer;
+}
+.btn-add img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
 }
 .empty {
   text-align: center;
-  opacity: 0.8;
-  padding: 2rem 0;
   display: grid;
-  gap: 0.5rem;
+  gap: 8px;
   justify-items: center;
+  padding: 40px 0 0;
+}
+.empty p {
+  margin: 0;
+  font-size: 1.8rem;
+  color: #ffffff;
+  font-weight: 500;
+}
+.empty::before,
+.empty::after {
+  content: "";
+  width: 80px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--accent);
+}
+.empty img {
+  display: none;
 }
 .list {
   list-style: none;
@@ -113,6 +124,11 @@
   padding: 0;
   display: grid;
   gap: 10px;
+}
+.card {
+  background: #09090c;
+  border-radius: 4px;
+  border: 1px solid #222;
 }
 .task {
   display: grid;
@@ -126,7 +142,7 @@
   font-weight: 600;
 }
 .task__note {
-  margin: 0.15rem 0 0;
+  margin: 2px 0 0;
   opacity: 0.85;
   font-size: 0.9rem;
 }
@@ -139,8 +155,8 @@
   display: flex;
   gap: 6px;
 }
-.task--completed .tasktitle,
-.task--completed .tasknote {
+.task--completed .task__title,
+.task--completed .task__note {
   text-decoration: line-through;
   opacity: 0.6;
 }
@@ -158,14 +174,4 @@
 .share-box img {
   width: 18px;
   height: 18px;
-}
-@media (min-width: 600px) {
-  .app {
-    gap: 16px;
-  }
-}
-@media (min-width: 600px) {
-  .app {
-    gap: 16px;
-  }
 }

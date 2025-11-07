@@ -6,9 +6,13 @@ html.body {
 }
 body {
   margin: 0;
-  font-family: var(--font);
-  color: var(--text);
-  background: var(--bg);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: #050507;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
 }
 img {
   max-width: 100%;
