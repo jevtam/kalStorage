@@ -45,18 +45,43 @@
       </div>
     </main>
 
-    <dialog id="confirm" class="dialog card">
+    <dialog id="confirm-dialog" class="dialog card">
       <p class="dialog__title">Delete this task?</p>
       <div class="dialog__actions">
-        <button class="btn btn--ghost" value="no">
-          <img src="img/cancelButton.png" alt="" width="18" height="18" />
-          <span>No</span>
+        <button type="button" class="btn btn-ghost" data-action="cancel">
+          No
         </button>
-        <button class="btn btn--accent" value="yes">
-          <img src="img/daButton.png" alt="" width="18" height="18" />
-          <span>Yes</span>
+        <button type="button" class="btn btn-accent" data-action="confirm">
+          Yes
         </button>
       </div>
+    </dialog>
+
+    <dialog id="edit-dialog" class="dialog card">
+      <form id="edit-form" method="dialog" class="edit-form">
+        <div class="edit-form__fields">
+          <input
+            id="edit-title"
+            name="edit-title"
+            class="field"
+            type="text"
+            placeholder="Mini input…"
+            required
+          />
+          <textarea
+            id="edit-note"
+            name="edit-note"
+            class="field edit-form__textarea"
+            placeholder="Max input…"
+            rows="6"
+          ></textarea>
+        </div>
+
+        <div class="dialog__actions">
+          <button class="btn btn-ghost" value="cancel">Cancel</button>
+          <button class="btn btn-accent" value="save">Save</button>
+        </div>
+      </form>
     </dialog>
 
     <script type="module" src="js/main.js"></script>
