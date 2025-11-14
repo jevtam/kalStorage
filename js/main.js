@@ -123,8 +123,6 @@ confirmOkBtn.addEventListener("click", () => {
   confirmDialog.close();
 });
 
-// ---------- РЕДАКТИРОВАНИЕ ----------
-
 function openEditDialog(id) {
   const task = tasks.find((t) => t.id === id);
   if (!task) return;
