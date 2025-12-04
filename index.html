@@ -1,87 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>SEBIAN LEX</title>
-    <link rel="stylesheet" href="styles/tokens.css" />
-    <link rel="stylesheet" href="styles/base.css" />
-    <link rel="stylesheet" href="styles/components.css" />
-    <link rel="stylesheet" href="styles/app.css" />
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lab3</title>
   </head>
   <body>
-    <main class="app">
-      <form id="task-form" class="task-form" autocomplete="off">
-        <div class="task-form__fields">
-          <input
-            id="title"
-            name="title"
-            class="field"
-            type="text"
-            placeholder="Title…"
-            required
-          />
-          <input
-            id="note"
-            name="note"
-            class="field"
-            type="text"
-            placeholder="About…"
-          />
-        </div>
-        <button class="btn-add" type="submit" title="Add task">
-          <img src="img/addButton.png" alt="Add" />
-        </button>
-      </form>
-      <div class="app__inner">
-        <header class="app__header"></header>
-
-        <section id="empty" class="empty"><p>No tasks</p></section>
-        <ul id="list" class="list" role="list"></ul>
-      </div>
-    </main>
-
-    <dialog id="confirm-dialog" class="dialog card">
-      <p class="dialog__title">Delete this task?</p>
-      <div class="dialog__actions">
-        <button type="button" class="btn btn-ghost" data-action="cancel">
-          No
-        </button>
-        <button type="button" class="btn btn-accent" data-action="confirm">
-          Yes
-        </button>
-      </div>
-    </dialog>
-
-    <dialog id="edit-dialog" class="dialog card">
-      <form id="edit-form" class="edit-form">
-        <div class="edit-form__fields">
-          <input
-            id="edit-title"
-            name="edit-title"
-            class="field"
-            type="text"
-            placeholder="Mini input…"
-            required
-          />
-          <textarea
-            id="edit-note"
-            name="edit-note"
-            class="field edit-form__textarea"
-            placeholder="Max input…"
-            rows="6"
-          ></textarea>
-        </div>
-
-        <div class="dialog__actions">
-          <button type="button" class="btn btn-ghost" id="edit-cancel">
-            Cancel
-          </button>
-          <button type="submit" class="btn btn-accent">Save</button>
-        </div>
-      </form>
-    </dialog>
-
-    <script defer src="js/main.js"></script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
