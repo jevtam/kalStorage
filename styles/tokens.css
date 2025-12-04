@@ -1,7 +1,12 @@
-:root{
-    --bg:#1B1A17;
-    --bg-light:#1F1E1B;
-    --m-color-hover:#A35709;
-    --m-color:#FF8303;
-    --m-text:#F0E3CA;
+:root {
+  --bg: #0c0c0d;
+  --surface: #161616;
+  --text: #e9e9ea;
+  --muted: #2a2a2c;
+
+  --accent: #ff8a00;
+  --accent-weak: #ff8a0033;
+
+  --radius: 14px;
+  --shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
 }

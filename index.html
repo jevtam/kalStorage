@@ -37,10 +37,7 @@
           </button>
         </form>
 
-        <section id="empty" class="empty">
-          <p>No tasks</p>
-        </section>
-
+        <section id="empty" class="empty"><p>No tasks</p></section>
         <ul id="list" class="list" role="list"></ul>
       </div>
     </main>
@@ -55,6 +52,55 @@
           Yes
         </button>
       </div>
+    </dialog>
+    <dialog id="edit" class="dialog card">
+      <form id="edit-form" method="dialog">
+        <p style="margin: 0 0 0.75rem 0; font-weight: 600">Edit task</p>
+
+        <input id="edit-title" class="field" placeholder="Mini input..." />
+        <div style="height: 0.75rem"></div>
+        <textarea
+          id="edit-note"
+          class="field"
+          placeholder="Max input..."
+          rows="8"
+        ></textarea>
+
+        <div
+          style="
+            display: flex;
+            gap: 0.5rem;
+            justify-content: flex-end;
+            margin-top: 1rem;
+          "
+        >
+          <button
+            value="cancel"
+            class="icon-btn small-icon"
+            style="
+              width: auto;
+              height: auto;
+              padding: 0.6rem 1rem;
+              border-radius: 10px;
+            "
+          >
+            Cancel
+          </button>
+          <button
+            id="edit-save"
+            value="save"
+            class="icon-btn small-icon"
+            style="
+              width: auto;
+              height: auto;
+              padding: 0.6rem 1rem;
+              border-radius: 10px;
+            "
+          >
+            Save
+          </button>
+        </div>
+      </form>
     </dialog>
 
     <dialog id="edit-dialog" class="dialog card">
@@ -84,6 +130,6 @@
       </form>
     </dialog>
 
-    <script type="module" src="js/main.js"></script>
+    <script defer src="js/main.js"></script>
   </body>
 </html>

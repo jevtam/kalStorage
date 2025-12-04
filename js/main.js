@@ -1,283 +1,159 @@
-const STORAGE_KEY = "tt-todo-tasks-v1";
-
 const form = document.getElementById("task-form");
 const titleInput = document.getElementById("title");
 const noteInput = document.getElementById("note");
 const listEl = document.getElementById("list");
 const emptyEl = document.getElementById("empty");
 
-const confirmDialog = document.getElementById("confirm-dialog");
-const confirmCancelBtn = confirmDialog.querySelector(
-  '[data-action="cancel"]'
-);
-const confirmOkBtn = confirmDialog.querySelector('[data-action="confirm"]');
+const STORAGE_KEY = "kal:tasks";
 
-const editDialog = document.getElementById("edit-dialog");
+const load = () => {
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+  } catch {
+    return [];
+  }
+};
+const save = (data) => localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+
+let tasks = load();
+
+const esc = (s) =>
+  String(s)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+
+function render() {
+  const editBtn = makeSmallIconButton("img/editButton.png", () =>
+    onEdit(task.id)
+  );
+  const delBtn = makeSmallIconButton("img/deleteButton.png", () =>
+    onDelete(task.id)
+  );
+  actions.append(editBtn, delBtn);
+
+  listEl.innerHTML = "";
+  if (!tasks.length) {
+    emptyEl.hidden = false;
+    return;
+  }
+  emptyEl.hidden = true;
+
+  for (const t of tasks) {
+    const li = document.createElement("li");
+    li.className = "card task";
+    li.dataset.id = t.id;
+    li.innerHTML = `
+      <div>
+        <h3 class="task__title">${esc(t.title)}</h3>
+        ${t.note ? `<p class="task__note">${esc(t.note)}</p>` : ""}
+      </div>
+      <div class="task__actions">
+        <button class="icon-btn js-edit" type="button" title="Edit">
+          <img src="img/editButton.png" alt="Edit" />
+        </button>
+        <button class="icon-btn js-delete" type="button" title="Delete">
+          <img src="img/deleteButton.png" alt="Delete" />
+        </button>
+      </div>
+    `;
+    listEl.appendChild(li);
+  }
+}
+
+function renderList() {
+  const list = document.getElementById("list");
+  list.innerHTML = "";
+  state.tasks.forEach(renderTask);
+  document.getElementById("empty").hidden = state.tasks.length > 0;
+}
+
+// ---------- EDIT ----------
+const editDlg = document.getElementById("edit");
 const editForm = document.getElementById("edit-form");
-const editTitleInput = document.getElementById("edit-title");
-const editNoteInput = document.getElementById("edit-note");
+const editTitle = document.getElementById("edit-title");
+const editNote = document.getElementById("edit-note");
 
-let tasks = [];
-let taskIdToDelete = null;
-let taskIdToEdit = null;
+let editingId = null;
 
+function onEdit(id) {
+  const t = state.tasks.find((x) => x.id === id);
+  if (!t) return;
+  editingId = id;
+  editTitle.value = t.title;
+  editNote.value = t.note ?? "";
+  editDlg.showModal();
+}
 
-loadTasks();
-renderTasks();
+editForm.addEventListener("close", () => {
+  if (editForm.returnValue !== "save") return;
+  if (!editingId) return;
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
+  const idx = state.tasks.findIndex((x) => x.id === editingId);
+  if (idx === -1) return;
+
+  state.tasks[idx] = {
+    ...state.tasks[idx],
+    title: editTitle.value.trim(),
+    note: editNote.value.trim(),
+  };
+  persist();
+  renderList();
+  editingId = null;
+});
+
+function makeSmallIconButton(src, onClick) {
+  const b = document.createElement("button");
+  b.type = "button";
+  b.className = "small-icon";
+  const img = document.createElement("img");
+  img.src = src;
+  img.alt = "";
+  b.append(img);
+  b.addEventListener("click", onClick);
+  return b;
+}
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
 
   const title = titleInput.value.trim();
   const note = noteInput.value.trim();
 
-  if (!title) return;
+  if (!title) {
+    titleInput.reportValidity();
+    return;
+  }
 
-  const newTask = {
-    id: Date.now().toString(),
-    title,
-    note,
-    createdAt: Date.now()
-  };
-
-  tasks.push(newTask);
-  saveTasks();
-  renderTasks();
+  const id = crypto.randomUUID?.() || String(Date.now());
+  tasks.push({ id, title, note, completed: false });
+  save(tasks);
+  render();
 
   form.reset();
   titleInput.focus();
 });
 
-listEl.addEventListener("click", (event) => {
-  const taskItem = event.target.closest(".task");
-  if (!taskItem) return;
-
-  const id = taskItem.dataset.id;
-
-  if (event.target.closest(".task__delete-btn")) {
-    openDeleteDialog(id);
-    return;
-  }
-
-  if (event.target.closest(".btn-edit")) {
-    openEditDialog(id);
-    return;
-  }
-
-  if (
-    event.target.closest(".btn-share") ||
-    event.target.closest(".btn-info")
-  ) {
-    event.preventDefault();
-    return;
-  }
-});
-
-listEl.addEventListener("pointerdown", (event) => {
-  const taskItem = event.target.closest(".task");
-  if (!taskItem) return;
-  if (event.button !== 0) return;
-
-  let timer = setTimeout(() => {
-    toggleTaskMenu(taskItem, true);
-  }, 400);
-
-  const cancel = () => {
-    clearTimeout(timer);
-    listEl.removeEventListener("pointerup", cancel, true);
-    listEl.removeEventListener("pointercancel", cancel, true);
-    listEl.removeEventListener("pointerleave", cancel, true);
-  };
-
-  listEl.addEventListener("pointerup", cancel, true);
-  listEl.addEventListener("pointercancel", cancel, true);
-  listEl.addEventListener("pointerleave", cancel, true);
-});
-
-document.addEventListener("click", (event) => {
-  if (event.target.closest(".task")) return;
-  closeAllMenus();
-});
-
-
-function openDeleteDialog(id) {
-  taskIdToDelete = id;
-  confirmDialog.showModal();
-}
-
-confirmCancelBtn.addEventListener("click", () => {
-  taskIdToDelete = null;
-  confirmDialog.close();
-});
-
-confirmOkBtn.addEventListener("click", () => {
-  if (!taskIdToDelete) {
-    confirmDialog.close();
-    return;
-  }
-
-  tasks = tasks.filter((task) => task.id !== taskIdToDelete);
-  taskIdToDelete = null;
-  saveTasks();
-  renderTasks();
-  confirmDialog.close();
-});
-
-function openEditDialog(id) {
-  const task = tasks.find((t) => t.id === id);
-  if (!task) return;
-
-  taskIdToEdit = id;
-  editTitleInput.value = task.title;
-  editNoteInput.value = task.note;
-  editDialog.showModal();
-}
-
-editForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-
-  if (editDialog.returnValue === "cancel") {
-    taskIdToEdit = null;
-    editDialog.close();
-    return;
-  }
-
-  const task = tasks.find((t) => t.id === taskIdToEdit);
-  if (!task) {
-    editDialog.close();
-    return;
-  }
-
-  task.title = editTitleInput.value.trim() || task.title;
-  task.note = editNoteInput.value.trim();
-  saveTasks();
-  renderTasks();
-  editDialog.close();
-  taskIdToEdit = null;
-});
-
-
-function renderTasks() {
-  listEl.innerHTML = "";
-
-  if (!tasks.length) {
-    emptyEl.classList.remove("hidden");
-    return;
-  }
-
-  emptyEl.classList.add("hidden");
-
-  for (const task of tasks) {
-    const li = document.createElement("li");
-    li.className = "task card";
-    li.dataset.id = task.id;
-
-    const main = document.createElement("div");
-    main.className = "task__main";
-
-    const textBox = document.createElement("div");
-
-    const titleEl = document.createElement("p");
-    titleEl.className = "task__title";
-    titleEl.textContent = task.title;
-    textBox.appendChild(titleEl);
-
-    if (task.note) {
-      const noteEl = document.createElement("p");
-      noteEl.className = "task__note";
-      noteEl.textContent = task.note;
-      textBox.appendChild(noteEl);
+listEl.addEventListener("click", (e) => {
+  const del = e.target.closest(".js-delete");
+  if (del) {
+    const li = del.closest("li");
+    const id = li?.dataset.id;
+    if (!id) return;
+    if (confirm("Delete this task?")) {
+      tasks = tasks.filter((t) => t.id !== id);
+      save(tasks);
+      render();
     }
-
-    const deleteBtn = document.createElement("button");
-    deleteBtn.className = "task__delete-btn";
-    deleteBtn.type = "button";
-    deleteBtn.title = "Delete task";
-
-    const deleteImg = document.createElement("img");
-    deleteImg.src = "img/deleteButton.png";
-    deleteImg.alt = "Delete";
-    deleteBtn.appendChild(deleteImg);
-
-    main.appendChild(textBox);
-    main.appendChild(deleteBtn);
-
-    const menu = document.createElement("div");
-    menu.className = "task__menu";
-
-    const makeIconBtn = (className, src, alt, title) => {
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = `icon-btn ${className}`;
-      btn.title = title;
-
-      const img = document.createElement("img");
-      img.src = src;
-      img.alt = alt;
-      btn.appendChild(img);
-
-      return btn;
-    };
-
-    const shareBtn = makeIconBtn("btn-share", "img/shareButton.png", "Share", "Share");
-    const infoBtn = makeIconBtn("btn-info", "img/infoButton.png", "Info", "Info");
-    const editBtn = makeIconBtn("btn-edit", "img/editButton.png", "Edit", "Edit");
-
-    menu.appendChild(shareBtn);
-    menu.appendChild(infoBtn);
-    menu.appendChild(editBtn);
-
-    li.appendChild(main);
-    li.appendChild(menu);
-
-    listEl.appendChild(li);
   }
-}
+});
 
-function loadTasks() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) {
-      tasks = [];
-      return;
-    }
-    const parsed = JSON.parse(raw);
-    tasks = Array.isArray(parsed) ? parsed : [];
-  } catch (err) {
-    console.error("Failed to load tasks from storage", err);
-    tasks = [];
-  }
-}
+listEl.addEventListener("click", (e) => {
+  const edit = e.target.closest(".js-edit");
+  if (!edit) return;
+  alert("Edit is not implemented yet 🙂");
+});
 
-function saveTasks() {
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
-  } catch (err) {
-    console.error("Failed to save tasks to storage", err);
-  }
-}
-
-
-function toggleTaskMenu(taskEl, state) {
-  closeAllMenus();
-  if (state) {
-    taskEl.classList.add("task--open");
-  } else {
-    taskEl.classList.toggle("task--open");
-  }
-}
-
-function closeAllMenus() {
-  document
-    .querySelectorAll(".task.task--open")
-    .forEach((el) => el.classList.remove("task--open"));
-}
-
-function escapeHtml(str) {
-  return String(str)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
-}
+document.addEventListener("DOMContentLoaded", render);
