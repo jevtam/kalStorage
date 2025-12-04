@@ -15,7 +15,6 @@ const editCancelBtn = document.getElementById("edit-cancel");
 const STORAGE_KEY = "kal:tasks";
 
 //работа с localStorage
-
 function loadTasks() {
   try {
     return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
@@ -28,7 +27,7 @@ function saveTasks() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
 }
 
-//состояние 
+//состояние
 let tasks = loadTasks();
 let pendingDeleteId = null;
 let editingId = null;
@@ -42,15 +41,18 @@ const esc = (s) =>
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#39;");
 
-//рендер списка 
+//рендер списка
 function render() {
   listEl.innerHTML = "";
 
-  if (!tasks.length) {
-    emptyEl.hidden = false;
+  // если задач нет — показываем сообщение и выходим
+  if (tasks.length === 0) {
+    emptyEl.classList.remove("empty--hidden");
     return;
   }
-  emptyEl.hidden = true;
+
+  // если задачи есть — прячем сообщение
+  emptyEl.classList.add("empty--hidden");
 
   for (const t of tasks) {
     const li = document.createElement("li");
@@ -59,11 +61,7 @@ function render() {
     li.innerHTML = `
       <div>
         <h3 class="task__title">${esc(t.title)}</h3>
-        ${
-          t.note
-            ? `<p class="task__note">${esc(t.note)}</p>`
-            : ""
-        }
+        ${t.note ? `<p class="task__note">${esc(t.note)}</p>` : ""}
       </div>
       <div class="task__actions">
         <button class="icon-btn js-edit" type="button" title="Edit">

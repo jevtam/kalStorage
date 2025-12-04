@@ -11,31 +11,30 @@
   </head>
   <body>
     <main class="app">
+      <form id="task-form" class="task-form" autocomplete="off">
+        <div class="task-form__fields">
+          <input
+            id="title"
+            name="title"
+            class="field"
+            type="text"
+            placeholder="Title…"
+            required
+          />
+          <input
+            id="note"
+            name="note"
+            class="field"
+            type="text"
+            placeholder="About…"
+          />
+        </div>
+        <button class="btn-add" type="submit" title="Add task">
+          <img src="img/addButton.png" alt="Add" />
+        </button>
+      </form>
       <div class="app__inner">
         <header class="app__header"></header>
-
-        <form id="task-form" class="task-form" autocomplete="off">
-          <div class="task-form__fields">
-            <input
-              id="title"
-              name="title"
-              class="field"
-              type="text"
-              placeholder="Title…"
-              required
-            />
-            <input
-              id="note"
-              name="note"
-              class="field"
-              type="text"
-              placeholder="About…"
-            />
-          </div>
-          <button class="btn-add" type="submit" title="Add task">
-            <img src="img/addButton.png" alt="Add" />
-          </button>
-        </form>
 
         <section id="empty" class="empty"><p>No tasks</p></section>
         <ul id="list" class="list" role="list"></ul>
