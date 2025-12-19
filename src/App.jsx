@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";//все скоро будет
+import { useEffect, useState } from "react";
+import { observer } from "mobx-react-lite";
+import { useStore } from "./store/StoreContext.jsx";
 
-const STORAGE_KEY = "todo-lab2-react";
+const STORAGE_KEY = "todo-lab3";
 
 function getInitialTasks() {
   if (typeof window === "undefined") return [];
@@ -11,6 +13,179 @@ function getInitialTasks() {
     return [];
   }
 }
+
+function AppInner() {
+  const store = useStore();
+  const [taskToDelete, setTaskToDelete] = useState(null);
+  const [taskToEdit, setTaskToEdit] = useState(null);
+
+  const handleAddTask = (title, note) => {
+    store.addTask(title, note);
+  };
+
+  const handleDeleteConfirm = (id) => {
+    store.deleteTask(id);
+    setTaskToDelete(null);
+  };
+
+  const handleSaveEdit = (id, title, note) => {
+    store.editTask(id, title, note);
+    setTaskToEdit(null);
+  };
+
+  return (
+    <div className="page">
+      <main className="app">
+        <TaskForm onAdd={handleAddTask} />
+
+        <div className="app__inner">
+          <TaskList
+            pinned={store.pinnedTasks}
+            normal={store.normalTasks}
+            onEdit={setTaskToEdit}
+            onDelete={setTaskToDelete}
+            onTogglePin={(task) => store.togglePin(task.id)}
+            onMoveNormal={(fromId, toId) => store.moveNormalTask(fromId, toId)}
+          />
+        </div>
+      </main>
+
+      <DeleteDialog
+        task={taskToDelete}
+        onCancel={() => setTaskToDelete(null)}
+        onConfirm={handleDeleteConfirm}
+      />
+
+      <EditDialog
+        task={taskToEdit}
+        onCancel={() => setTaskToEdit(null)}
+        onSave={handleSaveEdit}
+      />
+    </div>
+  );
+}
+
+function TaskList({
+  pinned,
+  normal,
+  onEdit,
+  onDelete,
+  onTogglePin,
+  onMoveNormal,
+}) {
+  const hasTasks = pinned.length + normal.length > 0;
+
+  if (!hasTasks) {
+    return (
+      <section className="empty">
+        <p>No tasks</p>
+      </section>
+    );
+  }
+
+  return (
+    <>
+      <div className="tasks">
+        {pinned.length > 0 && (
+          <ul className="list list--pinned" role="list">
+            {pinned.map((t) => (
+              <TaskItem
+                key={t.id}
+                task={t}
+                draggable={false}
+                onEdit={onEdit}
+                onDelete={onDelete}
+                onTogglePin={onTogglePin}
+              />
+            ))}
+          </ul>
+        )}
+      </div>
+
+      <div className="tasks__scroll">
+        <ul className="list list--normal" role="list">
+          {normal.map((t) => (
+            <TaskItem
+              key={t.id}
+              task={t}
+              draggable={true}
+              onEdit={onEdit}
+              onDelete={onDelete}
+              onTogglePin={onTogglePin}
+              onMove={(fromId, toId) => onMoveNormal(fromId, toId)}
+            />
+          ))}
+        </ul>
+      </div>
+    </>
+  );
+}
+
+const TaskItem = observer(function TaskItem({
+  task,
+  draggable,
+  onEdit,
+  onDelete,
+  onTogglePin,
+  onMove,
+}) {
+  return (
+    <li
+      className="card task"
+      draggable={draggable}
+      onDragStart={(e) => {
+        if (!draggable) return;
+        e.dataTransfer.setData("text/plain", task.id);
+      }}
+      onDragOver={(e) => {
+        if (!draggable) return;
+        e.preventDefault();
+      }}
+      onDrop={(e) => {
+        if (!draggable) return;
+        const fromId = e.dataTransfer.getData("text/plain");
+        const toId = task.id;
+        onMove?.(fromId, toId);
+      }}
+    >
+      <div>
+        <h3 className="task__title">
+          {task.title} {task.pinned && "📌"}
+        </h3>
+        {task.note && <p className="task__note">{task.note}</p>}
+      </div>
+
+      <div className="task__actions">
+        <button
+          className="icon-btn"
+          type="button"
+          title={task.pinned ? "Unpin" : "Pin"}
+          onClick={() => onTogglePin(task)}
+        >
+          <span>📌</span>
+        </button>
+
+        <button
+          className="icon-btn"
+          type="button"
+          title="Edit"
+          onClick={() => onEdit(task)}
+        >
+          <img src="/img/editButton.png" alt="Edit" />
+        </button>
+
+        <button
+          className="icon-btn"
+          type="button"
+          title="Delete"
+          onClick={() => onDelete(task)}
+        >
+          <img src="/img/deleteButton.png" alt="Delete" />
+        </button>
+      </div>
+    </li>
+  );
+});
 
 //форма создания задачи
 function TaskForm({ onAdd }) {
@@ -52,49 +227,6 @@ function TaskForm({ onAdd }) {
         <img src="/img/addButton.png" alt="Add" />
       </button>
     </form>
-  );
-}
-
-//список задач
-function TaskList({ tasks, onEdit, onDelete }) {
-  if (tasks.length === 0) {
-    return (
-      <section className="empty">
-        <p>No tasks</p>
-      </section>
-    );
-  }
-
-  return (
-    <ul className="list" role="list">
-      {tasks.map((t) => (
-        <li key={t.id} className="card task">
-          <div>
-            <h3 className="task__title">{t.title}</h3>
-            {t.note && <p className="task__note">{t.note}</p>}
-          </div>
-
-          <div className="task__actions">
-            <button
-              className="icon-btn"
-              type="button"
-              title="Edit"
-              onClick={() => onEdit(t)}
-            >
-              <img src="/img/editButton.png" alt="Edit" />
-            </button>
-            <button
-              className="icon-btn"
-              type="button"
-              title="Delete"
-              onClick={() => onDelete(t)}
-            >
-              <img src="/img/deleteButton.png" alt="Delete" />
-            </button>
-          </div>
-        </li>
-      ))}
-    </ul>
   );
 }
 
@@ -165,11 +297,7 @@ function EditDialog({ task, onCancel, onSave }) {
         </div>
 
         <div className="dialog__actions">
-          <button
-            type="button"
-            className="btn btn-ghost"
-            onClick={onCancel}
-          >
+          <button type="button" className="btn btn-ghost" onClick={onCancel}>
             Cancel
           </button>
           <button type="submit" className="btn btn-accent">
@@ -181,71 +309,4 @@ function EditDialog({ task, onCancel, onSave }) {
   );
 }
 
-function App() {
-  const [tasks, setTasks] = useState(getInitialTasks);
-  const [taskToDelete, setTaskToDelete] = useState(null);
-  const [taskToEdit, setTaskToEdit] = useState(null);
-
-  //синхронизация с localStorage
-  useEffect(() => {
-    try {
-      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
-    } catch {
-    }
-  }, [tasks]);
-
-  const handleAddTask = (title, note) => {
-    const newTask = {
-      id: crypto.randomUUID(),
-      title,
-      note,
-    };
-    setTasks((prev) => [newTask, ...prev]);
-  };
-
-  const handleConfirmDelete = (id) => {
-    setTasks((prev) => prev.filter((t) => t.id !== id));
-    setTaskToDelete(null);
-  };
-
-  const handleSaveEdit = (id, title, note) => {
-    setTasks((prev) =>
-      prev.map((t) => (t.id === id ? { ...t, title, note } : t))
-    );
-    setTaskToEdit(null);
-  };
-
-  return (
-    <div className="page">
-      <main className="app">
-        <TaskForm onAdd={handleAddTask} />
-
-        <div className="app__inner">
-          <header className="app__header">
-          </header>
-
-          <TaskList
-            tasks={tasks}
-            onEdit={setTaskToEdit}
-            onDelete={setTaskToDelete}
-          />
-        </div>
-      </main>
-
-      <DeleteDialog
-        task={taskToDelete}
-        onCancel={() => setTaskToDelete(null)}
-        onConfirm={handleConfirmDelete}
-      />
-
-      <EditDialog
-        key={taskToEdit?.id ?? "none"}
-        task={taskToEdit}
-        onCancel={() => setTaskToEdit(null)}
-        onSave={handleSaveEdit}
-      />
-    </div>
-  );
-}
-
-export default App;
+export default observer(AppInner);

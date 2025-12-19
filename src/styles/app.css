@@ -175,3 +175,32 @@
   margin-top: 12px;
   margin-bottom: 16px;
 }
+.app__inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+.tasks {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.list--pinned {
+  margin-bottom: 12px;
+  scrollbar-width: none;
+}
+
+.tasks__scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+
+  scrollbar-width: none;
+}
+.tasks__scroll::-webkit-scrollbar {
+  display: none;
+}
